@@ -70,3 +70,12 @@ class Pages(db.Model):
 	page_title = db.Column(db.String(100), nullable=False)
 	page_description = db.Column(db.Text, nullable=True)
 
+class SMLink(db.Model):
+	__tablename__= "social_media_links"
+	sm_id = db.Column(db.Integer, primary_key=True)
+	fb_link = db.Column(db.String(200), nullable=True)
+	twitter_link = db.Column(db.String(200), nullable=True)
+	instagram_link = db.Column(db.String(200), nullable=True)
+	google_plus_link = db.Column(db.String(200), nullable=True)
+	linkedin_link = db.Column(db.String(200), nullable=True)
+

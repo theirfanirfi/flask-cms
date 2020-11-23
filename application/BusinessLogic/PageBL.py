@@ -53,3 +53,10 @@ class PageBL:
             return True, 'Page deleted', 'success'
         except Exception as e:
             return False, str(e), 'error'
+
+    def get_contact_page_for_frontend_link(self):
+        search_term = "%{}%".format("contact")
+        page = Pages.query.filter(Pages.page_title.like(search_term))
+        if page.count() > 0:
+            return page.first()
+        return False

@@ -1,0 +1,55 @@
+{% extends "frontend/masterlayout.html" %}
+{% block content %}
+<!-- inner page banner -->
+<div id="inner_banner" class="section inner_banner_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="title-holder">
+                        <div class="title-holder-cell text-left">
+                            <h1 class="page-title">{{data['page'].page_title}}</h1>
+                            <ol class="breadcrumb">
+                                <li><a href="{{url_for('FrontEndView:index')}}">Home</a></li>
+                                <li class="active">{{data['page'].page_title}}</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end inner page banner -->
+
+
+<!-- section -->
+<div class="section padding_layout_1 product_detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {{data['page'].page_description|safe}}
+            </div>
+            <div class="col-md-3">
+                <div class="side_bar">
+                    <div class="side_bar_blog">
+                        <h4>SEARCH</h4>
+                        <div class="side_bar_search">
+                            <form action="{{url_for('FrontEndView:search')}}" method="post">
+                                <div class="input-group stylish-input-group">
+                                    <input class="form-control" name="search_term" placeholder="Search" type="text">
+                                    <span class="input-group-addon">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end section -->
+
+{% endblock %}

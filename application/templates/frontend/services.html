@@ -1,0 +1,92 @@
+{% extends "frontend/masterlayout.html" %}
+{% block content %}
+<!-- inner page banner -->
+<div id="inner_banner" class="section inner_banner_section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="full">
+          <div class="title-holder">
+            <div class="title-holder-cell text-left">
+              <h1 class="page-title">Services</h1>
+              <ol class="breadcrumb">
+                <li><a href="{{url_for('FrontEndView:index')}}">Home</a></li>
+                <li class="active">Services</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end inner page banner -->
+
+
+
+<!-- section -->
+<div class="section padding_layout_1 product_list_main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="row">
+            {% if data['services'] %}
+            {% for service in data['services'] %}
+          <div class="col-md-4 col-sm-6 col-xs-12 margin_bottom_30_all">
+            <div class="product_list">
+              <div class="product_img"> <img class="img-responsive" src="{{url_for('static', filename='services/')}}{{service.service_image}}" alt=""> </div>
+              <div class="product_detail_btm">
+                <div class="center">
+                  <h4><a href="{{url_for('FrontEndView:service', id=service.service_id)}}">{{service.service_title}}</a></h4>
+                </div>
+                <div class="starratin">
+                  <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
+                </div>
+                <div class="product_price">
+                  <p><span class="new_price">{{service.service_price}} PKR</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="side_bar">
+                    <div class="side_bar_blog">
+                        <h4>SEARCH</h4>
+                        <div class="side_bar_search">
+                            <form action="{{url_for('FrontEndView:search')}}" method="post">
+                                <div class="input-group stylish-input-group">
+                                    <input class="form-control" name="search_term" placeholder="Search" type="text">
+                                    <span class="input-group-addon">
+                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+          <div class="side_bar_blog">
+            <h4>Service Categories</h4>
+            <div class="categary">
+              <ul>
+                  {% if data['categories']  %}
+                  {% for cat in data['categories']  %}
+                <li><a href="{{url_for('FrontEndView:services_by_category', id=cat.cat_id)}}"><i class="fa fa-angle-right"></i> {{cat.cat_title}}</a></li>
+                  {% endfor %}
+                  {% endif %}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end section -->
+
+
+{% endblock %}

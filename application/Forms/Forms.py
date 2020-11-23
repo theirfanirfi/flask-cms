@@ -30,7 +30,7 @@ class LoginForm(FlaskForm):
 
 class ProductForm(FlaskForm):
     product_title = StringField('Product Title', validators=[DataRequired()])
-    product_description = TextAreaField('Product Description', validators=[DataRequired()])
+    product_description = TextAreaField('Product Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
     product_category = SelectField('Select Product Category', choices=[], coerce=str)
     product_image = FileField('Product Image', validators=[
         FileAllowed(['png', 'jpg', 'jpeg'], "JPG, PNG, JPEG files are only allowed.")])
@@ -40,7 +40,7 @@ class ProductForm(FlaskForm):
 
 class ServiceForm(FlaskForm):
     service_title = StringField('Service Title', validators=[DataRequired()])
-    service_description = TextAreaField('Service Description', validators=[DataRequired()])
+    service_description = TextAreaField('Service Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
     service_category = SelectField('Select Service Category', choices=[], coerce=str)
     service_image = FileField('Service Image', validators=[])
     service_price = FloatField('Service Charges', validators=[DataRequired()])
@@ -73,5 +73,13 @@ class SliderForm(FlaskForm):
 
 class PageForm(FlaskForm):
     page_title = StringField('Page title', validators=[DataRequired()])
-    page_description = TextAreaField('Page Description', validators=[DataRequired()])
+    page_description = TextAreaField('Page Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
+    submit = SubmitField()
+
+class SMLinksForm(FlaskForm):
+    fb_link = StringField('Facebook link')
+    twitter_link = StringField('Twitter link')
+    instagram_link = StringField('Instagram link')
+    google_plus_link = StringField('Google+ link')
+    linkedin_link = StringField('LinkedIn link')
     submit = SubmitField()

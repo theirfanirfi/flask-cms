@@ -44,7 +44,7 @@
 
                                     <div class="form-group">
                                         <label for="">{{form.page_description.label}}</label>
-                                        {{form.page_description(class_='form-control')}}
+                                        {{form.page_description()}}
                                         {% if form.page_description.errors %}
                                         {% for error in form.page_description.errors %}
                                         <small class="form-text text-muted" style='color:red;'>{{error}}</small>

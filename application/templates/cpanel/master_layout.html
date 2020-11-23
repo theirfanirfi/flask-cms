@@ -33,6 +33,14 @@
           media="screen"/>
     <link href="{{ url_for('static', filename='dataTables.bootstrap.css') }}" rel="stylesheet" type="text/css"
           media="screen"/>
+
+            <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+        <link href="{{ url_for('static', filename='bootstrap3-wysihtml5/css/bootstrap3-wysihtml5.min.css') }}" rel="stylesheet" type="text/css" media="screen"/>
+
+        <link href="assets/plugins/uikit/css/uikit.min.css" rel="stylesheet" type="text/css" media="screen"/>
+        <link href="assets/plugins/uikit/vendor/codemirror/codemirror.css" rel="stylesheet" type="text/css" media="screen"/>
+
+        <link href="{{ url_for('static', filename='htmleditor.css') }}" rel="stylesheet" type="text/css" media="screen"/>
     <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 
@@ -177,6 +185,13 @@
                     </a>
                 </li>
 
+                <li class="">
+                    <a href="{{url_for('LinksView:index')}}">
+                        <i class=""></i>
+                        <span class="title">S.M. Links</span>
+                    </a>
+                </li>
+
 
             </ul>
 
@@ -212,6 +227,12 @@
 <script src="{{ url_for('static', filename='dataTables.tableTools.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='dataTables.responsive.min.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='dataTables.bootstrap.js') }}" type="text/javascript"></script>
+
+      <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+        <script src="{{ url_for('static', filename='bootstrap3-wysihtml5/js/bootstrap3-wysihtml5.all.min.js') }}" type="text/javascript"></script>
+        <script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='htmleditor.js') }}" type="text/javascript"></script>
+
 <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
 
 
@@ -233,11 +254,13 @@
 
 
 
+
 </script>
 {% elif category == 'success' %}
 <script>
         var msg = '{{message}}';
         alert("Success: " + msg);
+
 
 
 
