@@ -5,6 +5,7 @@ from application.BusinessLogic.UserBL import UserBL
 from application.BusinessLogic.SMLinksBL import SMLinksBL
 from application.BusinessLogic.CustomerBL import CustomerBL
 from application.BusinessLogic.PageBL import PageBL
+from application.BusinessLogic.SettingsBL import SettingsBL
 from flask_login import login_user, logout_user, login_required, current_user
 from application.Models.models import Logo, Slider, Pages, Partner, Product, Service, Categories, Customer
 
@@ -16,6 +17,7 @@ class FrontEndView(FlaskView):
 	linksBL = SMLinksBL()
 	cbl = CustomerBL()
 	pbl = PageBL()
+	sbl = SettingsBL()
 
 	def redirect_with_details(self, template, data):
 		pages = Pages.query.all()
@@ -23,9 +25,10 @@ class FrontEndView(FlaskView):
 		links = self.linksBL.get_links_for_frontend()
 		service_categories = Categories.query.filter_by(service_category=1).all()
 		product_categories = Categories.query.filter_by(product_category=1).all()
+		footer = self.sbl.get_footer_setting_frontend()
 		return render_template(template,title=self.title,service_categories=service_categories,
 							   product_categories=product_categories,pages=pages, logo=logo,
-							   links=links, data=data)
+							   links=links, data=data, footer=footer)
 
 	def index(self):
 		sliders = Slider.query.all()
@@ -131,6 +134,14 @@ class FrontEndView(FlaskView):
 		partners = Partner.query.all()
 		data = {'partners': partners}
 		return self.redirect_with_details("frontend/partner.html", data)
+
+	def contactus(self):
+		page = self.pbl.get_contact_page_for_frontend_link()
+		if not page:
+			return 'Invalid request'
+		data = {'page': page}
+		return self.redirect_with_details("frontend/page.html", data)
+
 
 	def customers(self):
 		customers = Customer.query.all()

@@ -43,6 +43,7 @@ from application.Views.PageView import PagesView
 from application.Views.ProductsView import ProductsView
 from application.Views.UserView import UserView
 from application.Views.LinksView import LinksView
+from application.Views.SettingsView import SettingsView
 from application.Views.frontend.FrontEndView import FrontEndView
 
 CategoriesView.register(app, route_base='cpanel/categories/')
@@ -55,6 +56,10 @@ PagesView.register(app, route_base='cpanel/pages/')
 ProductsView.register(app, route_base='cpanel/products/')
 LinksView.register(app, route_base='cpanel/links/')
 UserView.register(app, route_base='/cpanel/login/')
+SettingsView.register(app, route_base='/cpanel/settings')
+
+
+#frontend views
 FrontEndView.register(app, route_base='/')
 
 

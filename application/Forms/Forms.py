@@ -43,7 +43,6 @@ class ServiceForm(FlaskForm):
     service_description = TextAreaField('Service Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
     service_category = SelectField('Select Service Category', choices=[], coerce=str)
     service_image = FileField('Service Image', validators=[])
-    service_price = FloatField('Service Charges', validators=[DataRequired()])
     submit = SubmitField()
 
 
@@ -82,4 +81,8 @@ class SMLinksForm(FlaskForm):
     instagram_link = StringField('Instagram link')
     google_plus_link = StringField('Google+ link')
     linkedin_link = StringField('LinkedIn link')
+    submit = SubmitField()
+
+class FooterContactForm(FlaskForm):
+    setting_description = TextAreaField('Footer Contact us details', validators=[DataRequired()], render_kw={'class':'ckeditor'})
     submit = SubmitField()

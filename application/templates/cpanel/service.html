@@ -77,17 +77,6 @@
 
                                     </div>
 
-                                    <div class="form-group">
-                                        <label for="">{{form.service_price.label}}</label>
-                                        {{form.service_price(class_='form-control')}}
-                                        {% if form.service_price.errors %}
-                                        {% for error in form.service_price.errors %}
-                                        <small class="form-text text-muted" style='color:red;'>{{error}}</small>
-                                        {% endfor %}
-                                        {% endif %}
-
-                                    </div>
-
 
                                     <div class="form-group">
                                         {{form.submit(class_='btn btn-primary',value='Add Service')}}
@@ -107,7 +96,6 @@
                                         <th>Service Title</th>
                                         <th>Category</th>
                                         <th>Image</th>
-                                        <th>Price</th>
                                         <th>Description</th>
                                         <th>Delete</th>
                                     </tr>
@@ -118,7 +106,6 @@
                                         <th>Service Title</th>
                                         <th>Category</th>
                                         <th>Image</th>
-                                        <th>Price</th>
                                         <th>Description</th>
                                         <th>Delete</th>
                                     </tr>
@@ -131,7 +118,7 @@
                                         <td>{{s.service_title}}</td>
                                         <td>{{s.service_category}}</td>
                                         <td><img src="{{url_for('static', filename='services/')}}{{s.service_image}}" width="90" height="80" /> </td>
-                                        <td>{{s.service_charges}}</td>
+
                                         <td>{{s.service_description}}</td>
                                         <td>
                                             <a href="{{url_for('ServiceView:delete',id=s.service_id)}}"

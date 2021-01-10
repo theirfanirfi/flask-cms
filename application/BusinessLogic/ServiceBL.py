@@ -10,7 +10,6 @@ class ServiceBL:
         service.service_title = form.service_title.data
         service.service_description = form.service_description.data
         service.service_category = form.service_category.data
-        service.service_charges = form.service_price.data
         isSaved, file_name = save_file(form.service_image.data, 'services')
         service.service_image = file_name
         try:

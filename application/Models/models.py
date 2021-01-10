@@ -79,3 +79,8 @@ class SMLink(db.Model):
 	google_plus_link = db.Column(db.String(200), nullable=True)
 	linkedin_link = db.Column(db.String(200), nullable=True)
 
+class Settings(db.Model):
+	__tablename__= "settings"
+	setting_id = db.Column(db.Integer, primary_key=True)
+	setting_type = db.Column(db.String(50), nullable=False)
+	setting_description = db.Column(db.Text, nullable=False)
