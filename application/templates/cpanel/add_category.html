@@ -41,19 +41,6 @@
                                         {% endif %}
                                     </div>
 
-
-                                    <div class="form-group">
-                                        {{form.product_category()}}
-                                        <label for="">{{form.product_category.label}}</label>
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        {{form.service_category()}}
-                                        <label for="">{{form.service_category.label}}</label>
-
-                                    </div>
-
                                     <div class="form-group">
                                         {{form.submit(class_='btn btn-primary',value='Add Category')}}
                                     </div>
@@ -70,8 +57,6 @@
                                     <thead>
                                         <tr>
                                             <th>Category Title</th>
-                                            <th>Service Category</th>
-                                            <th>Product Category</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
@@ -79,8 +64,6 @@
                                     <tfoot>
                                         <tr>
                                             <th>Category Title</th>
-                                            <th>Service Category</th>
-                                            <th>Product Category</th>
                                             <th>Delete</th>
                                         </tr>
                                     </tfoot>
@@ -90,8 +73,6 @@
                                         {% for c in categories %}
                                         <tr>
                                             <td>{{c.cat_title}}</td>
-                                            <td>{% if c.service_category == 1 %} Yes {% else %} No {% endif %}</td>
-                                            <td>{% if c.product_category == 1 %} Yes {% else %} No {% endif %}</td>
                                             <td>
                                                 <a href="{{url_for('CategoriesView:delete',id=c.cat_id)}}"
                                                     class="btn btn-danger">Delete</a>

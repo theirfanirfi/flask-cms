@@ -17,8 +17,6 @@ class ChangePasswordForm(FlaskForm):
 
 class CategoriesForm(FlaskForm):
     cat_title = StringField('Category Title', validators=[DataRequired()])
-    product_category = BooleanField('Product Category')
-    service_category = BooleanField('Service Category')
     submit = SubmitField()
 
 
@@ -28,61 +26,14 @@ class LoginForm(FlaskForm):
     submit = SubmitField()
 
 
-class ProductForm(FlaskForm):
-    product_title = StringField('Product Title', validators=[DataRequired()])
-    product_description = TextAreaField('Product Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
-    product_category = SelectField('Select Product Category', choices=[], coerce=str)
-    product_image = FileField('Product Image', validators=[
+class PostForm(FlaskForm):
+    post_title = StringField('Post Title', validators=[DataRequired()])
+    post_description = TextAreaField('Post Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
+    post_category = SelectField('Select Post Category', choices=[], coerce=str)
+    post_image = FileField('Post Image', validators=[
         FileAllowed(['png', 'jpg', 'jpeg'], "JPG, PNG, JPEG files are only allowed.")])
-    product_price = FloatField('Product Price', validators=[DataRequired()])
     submit = SubmitField()
 
 
-class ServiceForm(FlaskForm):
-    service_title = StringField('Service Title', validators=[DataRequired()])
-    service_description = TextAreaField('Service Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
-    service_category = SelectField('Select Service Category', choices=[], coerce=str)
-    service_image = FileField('Service Image', validators=[])
-    submit = SubmitField()
 
 
-class PartnerForm(FlaskForm):
-    partner_title = StringField('Partner name', validators=[DataRequired()])
-    partner_image = FileField('Partner Image', validators=[])
-    submit = SubmitField()
-
-
-class CustomerForm(FlaskForm):
-    customer_name = StringField('Customer name', validators=[DataRequired()])
-    customer_image = FileField('Customer Image', validators=[])
-    customer_review = TextAreaField('Customer Review', validators=[DataRequired()])
-    submit = SubmitField()
-
-
-class LogoForm(FlaskForm):
-    logo_image = FileField('Logo Image', validators=[])
-    submit = SubmitField()
-
-
-class SliderForm(FlaskForm):
-    slider_title = StringField('Slider title', validators=[DataRequired()])
-    slider_image = FileField('Slider Image', validators=[])
-    submit = SubmitField()
-
-
-class PageForm(FlaskForm):
-    page_title = StringField('Page title', validators=[DataRequired()])
-    page_description = TextAreaField('Page Description', validators=[DataRequired()], render_kw={'class':'ckeditor'})
-    submit = SubmitField()
-
-class SMLinksForm(FlaskForm):
-    fb_link = StringField('Facebook link')
-    twitter_link = StringField('Twitter link')
-    instagram_link = StringField('Instagram link')
-    google_plus_link = StringField('Google+ link')
-    linkedin_link = StringField('LinkedIn link')
-    submit = SubmitField()
-
-class FooterContactForm(FlaskForm):
-    setting_description = TextAreaField('Footer Contact us details', validators=[DataRequired()], render_kw={'class':'ckeditor'})
-    submit = SubmitField()

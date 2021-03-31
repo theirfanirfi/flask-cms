@@ -2,6 +2,7 @@ from application import app
 import os
 from werkzeug.utils import secure_filename
 
+
 def save_file(file,type):
     file_name = secure_filename(file.filename)
     file_ext = file_name.split('.')[1]

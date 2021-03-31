@@ -34,32 +34,13 @@ from application.Models import *
 # # app.register_blueprint(cpanel, url_prefix="/cpanel")
 
 from application.Views.CategoriesView import CategoriesView
-from application.Views.ServiceView import ServiceView
-from application.Views.PartnerView import PartnerView
-from application.Views.SliderView import SliderView
-from application.Views.CustomerView import CustomerView
-from application.Views.LogoView import LogoView
-from application.Views.PageView import PagesView
-from application.Views.ProductsView import ProductsView
+from application.Views.PostsView import PostsView
 from application.Views.UserView import UserView
-from application.Views.LinksView import LinksView
-from application.Views.SettingsView import SettingsView
-from application.Views.frontend.FrontEndView import FrontEndView
-
-CategoriesView.register(app, route_base='cpanel/categories/')
-ServiceView.register(app, route_base='cpanel/services/')
-PartnerView.register(app, route_base='cpanel/partners/')
-CustomerView.register(app, route_base='cpanel/customers/')
-LogoView.register(app, route_base='cpanel/logos/')
-SliderView.register(app, route_base='cpanel/sliders/')
-PagesView.register(app, route_base='cpanel/pages/')
-ProductsView.register(app, route_base='cpanel/products/')
-LinksView.register(app, route_base='cpanel/links/')
+#
+#
+# ProductsView.register(app, route_base='cpanel/products/')
 UserView.register(app, route_base='/cpanel/login/')
-SettingsView.register(app, route_base='/cpanel/settings')
-
-
-#frontend views
-FrontEndView.register(app, route_base='/')
+PostsView.register(app, route_base='/cpanel/posts/')
+CategoriesView.register(app, route_base='/cpanel/categories/')
 
 

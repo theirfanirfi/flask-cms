@@ -1,7 +1,7 @@
 from flask_classful import FlaskView, route
 from flask import render_template, flash, redirect, url_for
 from application.Forms.Forms import CategoriesForm
-from application.BusinessLogic.CategoriesBL import CategoriesBL
+from application.BusinessLogic.cpanel.CategoriesBL import CategoriesBL
 from flask_login import login_required
 
 class CategoriesView(FlaskView):

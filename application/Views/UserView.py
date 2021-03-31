@@ -1,7 +1,7 @@
 from flask_classful import FlaskView, route
 from flask import render_template, flash, redirect, url_for, request
 from application.Forms.Forms import UserForm, LoginForm, ChangePasswordForm
-from application.BusinessLogic.UserBL import UserBL
+from application.BusinessLogic.cpanel.UserBL import UserBL
 from flask_login import login_user, logout_user, login_required, current_user
 
 
@@ -55,7 +55,7 @@ class UserView(FlaskView):
 			isVerified, userOrException, message_type = self.ubl.verify_user(form)
 			if isVerified:
 				login_user(userOrException)
-				return redirect(url_for("PagesView:index"))
+				return redirect(url_for("PostsView:index"))
 			else:
 				flash(userOrException, 'error')
 			return redirect(url_for("UserView:index"))
